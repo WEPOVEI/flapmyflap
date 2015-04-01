@@ -6,7 +6,7 @@ window.Pipe3 = (function() {
 		this.pipe3 = pipe3;
 		this.game = game;
 		this.player = player;
-		this.startX = 103 + 40;
+		this.startX = 103 + 35;
 		this.startY = 24; // 53 to 25
 
 		this.minX = this.startX - 6;
@@ -49,7 +49,7 @@ window.Pipe3 = (function() {
 		// Back to the beginning
 		if(this.pos.x <= -3){
 			var randomNr = Math.floor((Math.random() * 28) + 1);	// 1 to 28
-			this.pos.x = this.startX;
+			this.pos.x = this.startX - 35;
 			this.pos.y = this.startY + randomNr;
 		}
 		this.pipe3.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
@@ -71,12 +71,14 @@ window.Pipe4 = (function() {
 		this.game = game;
 		this.player = player;
 		this.pipe3 = pipe3;
-		this.startX = 103 + 40;
+		this.startX = 103 + 35;
 		this.startY = -96;
 
 		this.minX = this.startX - 6;
 		this.maxX = this.startX + 6;
 		this.pos = { x: 0, y: 0 };
+
+		this.pipeGap = 120;
 	};
 
 	
@@ -85,7 +87,7 @@ window.Pipe4 = (function() {
 
 		//console.log(this.pipe1.getY());
 		this.pos.x = this.startX;
-		this.pos.y = this.pipe3.getY() - 115;
+		this.pos.y = this.pipe3.getY() - this.pipeGap;
 		//console.log("y: " + (this.pos.y + 100));
 		// Update UI
 		this.pipe4.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
@@ -114,8 +116,8 @@ window.Pipe4 = (function() {
 		}
 
 		if(this.pos.x <= -3){
-			this.pos.x = this.startX;
-			this.pos.y = this.pipe3.getY() - 115;
+			this.pos.x = this.startX - 35;
+			this.pos.y = this.pipe3.getY() - this.pipeGap;
 		}
 		this.pipe4.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 		//console.log("pos: " + this.pos.x  + ", " + this.pos.y);

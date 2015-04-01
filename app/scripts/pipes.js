@@ -77,6 +77,8 @@ window.Pipe2 = (function() {
 		this.minX = this.startX - 6;
 		this.maxX = this.startX + 6;
 		this.pos = { x: 0, y: 0 };
+
+		this.pipeGap = 120;
 	};
 
 	
@@ -85,7 +87,7 @@ window.Pipe2 = (function() {
 
 		//console.log(this.pipe1.getY());
 		this.pos.x = this.startX;
-		this.pos.y = this.pipe1.getY() - 115;
+		this.pos.y = this.pipe1.getY() - this.pipeGap;//115;
 		//console.log("y: " + (this.pos.y + 100));
 		// Update UI
 		this.pipe2.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
@@ -115,7 +117,7 @@ window.Pipe2 = (function() {
 
 		if(this.pos.x <= -3){
 			this.pos.x = this.startX;
-			this.pos.y = this.pipe1.getY() - 115;
+			this.pos.y = this.pipe1.getY() - this.pipeGap;
 		}
 		this.pipe2.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 		//console.log("pos: " + this.pos.x  + ", " + this.pos.y);
