@@ -22,7 +22,6 @@ window.Pipe5 = (function() {
 
 		// Update UI
 		this.pipe5.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
-		console.log("calling onFrame");
 	};
 
 	var SPEED = 30;
@@ -87,7 +86,7 @@ window.Pipe6 = (function() {
 		//console.log(this.pipe1.getY());
 		this.pos.x = this.startX;
 		this.pos.y = this.pipe5.getY() - 115;
-		console.log("y: " + (this.pos.y + 100));
+		//console.log("y: " + (this.pos.y + 100));
 		// Update UI
 		this.pipe6.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 	};

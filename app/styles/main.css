@@ -1,3 +1,4 @@
+
 .Player {
 	position: absolute;
 	top: 0;
@@ -6,6 +7,7 @@
 	height: 5em;
 	border-radius: 2em;
 	background: blue;
+	z-index: 2;
 }
 .Player-eyes{
 	position: absolute;
@@ -79,7 +81,7 @@
 }
 
 .Scoreboard-restart {
-	margin-top: 20em;
+	margin-top: 12em;
 	font-size: inherit;
 	padding: 0.4em 1.5em;
 	border: 0.2em solid white;
@@ -93,7 +95,12 @@ color: white;
 }
 .Scoreboard-points {
 font-family: 'Comic Sans MS', serif;
-font-size: 3.4em;
+font-size: 4.4em;
+color: white;
+}
+.Scoreboard-highscore {
+font-family: 'Comic Sans MS', serif;
+font-size: 2.4em;
 color: white;
 }
 body {
@@ -138,6 +145,43 @@ margin-top: -28.8em;
 overflow: hidden;
 background: rgb(0,150,255);
 z-index: -1;
+}
+
+@keyframes animatedBackground {
+	0% { background-position: 0 0; }
+	100% { background-position: -300px 0; }
+}
+@-moz-keyframes animatedBackground {
+	0% { background-position: 0 0; }
+	100% { background-position: -300px 0; }
+}
+@-webkit-keyframes animatedBackground {
+	0% { background-position: 0 0; }
+	100% { background-position: -300px 0; }
+}
+@-ms-keyframes animatedBackground {
+	0% { background-position: 0 0; }
+	100% { background-position: -300px 0; }
+}
+@-o-keyframes animatedBackground {
+	0% { background-position: 0 0; }
+	100% { background-position: -300px 0; }
+}
+.Backimg{
+
+	background-image: url('../images/backimg.png') repeat-x;
+	background-size: 10em 20em;
+	position:fixed;
+	height: 20em;
+	width:480em;
+	top:42em;
+	left:0;
+	z-index:-1;
+	animation: animatedBackground 3s linear infinite;
+	-moz-animation: animatedBackground 3s linear infinite;
+	-webkit-animation: animatedBackground 3s linear infinite;
+	-ms-animation: animatedBackground 3s linear infinite;
+	-o-animation: animatedBackground 3s linear infinite;
 }
 
 
