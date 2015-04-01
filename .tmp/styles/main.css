@@ -1,0 +1,188 @@
+.Player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6em;
+  height: 5em;
+  border-radius: 2em;
+  background: blue;
+}
+
+.Player-eyes {
+  position: absolute;
+  left: 4em;
+  top: 0.8em;
+  background: white;
+  border-radius: 4em;
+  height: 1.5em;
+  width: 1.5em;
+}
+
+.Player-eyeball {
+  position: absolute;
+  left: 5em;
+  top: 1.2em;
+  background: black;
+  border-radius: 4em;
+  height: 0.5em;
+  width: 0.5em;
+}
+
+.Player-wings {
+  position: absolute;
+  left: 1.25em;
+  top: 2.8em;
+  height: 0.5em;
+  width: 2.3em;
+  background: yellow;
+  /*virkar ekki
+	-webkit-transform: rotate(30deg);
+	transform: rotate(30deg);
+	*/
+  -webkit-transform-origin: top left;
+  transform-origin: top left;
+  -webkit-animation: 0.2s flap alternate infinite;
+  animation: 0.2s flap alternate infinite;
+}
+
+@-webkit-keyframes flap {
+  from {
+    -webkit-transform: rotateX(0);
+    transform: rotateX(0);
+  }
+
+  to {
+    -webkit-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+  }
+}
+
+@keyframes flap {
+  from {
+    -webkit-transform: rotateX(0);
+    transform: rotateX(0);
+  }
+
+  to {
+    -webkit-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+  }
+}
+
+.Player.Wiggle {
+  -webkit-animation: wiggle 4s eas-in-out infinite;
+}
+
+@-webkit-keyframes wiggle {
+  from {
+    top: 3em;
+  }
+
+  50% {
+    top: 2em;
+  }
+
+  to {
+    top: 3em;
+  }
+}
+
+.Scoreboard {
+  position: absolute;
+  left: 50%;
+  top: 10em;
+  height: 30em;
+  width: 40em;
+  margin-left: -20em;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: purple;
+  text-align: center;
+  -webkit-transform: translate(0, -40em);
+  -webkit-transition: -webkit-transform 0.5s;
+  z-index: 3;
+}
+
+/**
+* Reset transform to animate it into the correct spot on the screen.
+*/
+
+.Scoreboard.is-visible {
+  -webkit-transform: none;
+}
+
+.Scoreboard-restart {
+  margin-top: 20em;
+  font-size: inherit;
+  padding: 0.4em 1.5em;
+  border: 0.2em solid white;
+  background: none;
+  cursor: pointer;
+}
+
+.Scoreboard-restartText {
+  font-family: 'Comic Sans MS', serif;
+  font-size: 2.4em;
+  color: white;
+}
+
+.Scoreboard-points {
+  font-family: 'Comic Sans MS', serif;
+  font-size: 3.4em;
+  color: white;
+}
+
+body {
+  background: black;
+}
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: ?#?ccc?;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+@keyframes animatedBackground {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: -300px 0;
+  }
+}
+
+@-webkit-keyframes animatedBackground {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: -300px 0;
+  }
+}
+
+@-ms-keyframes animatedBackground {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: -300px 0;
+  }
+}
+
+.GameCanvas {
+  font-size: 10px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 102.4em;
+  height: 57.6em;
+  margin-left: -51.2em;
+  margin-top: -28.8em;
+  overflow: hidden;
+  background: rgb(0,150,255);
+  z-index: -1;
+}

@@ -12,14 +12,16 @@ window.Game = (function() {
 		this.player = new window.Player(this.el.find('.Player'), this);
 		this.pipe1 = new window.Pipe1(this.el.find('.pipe1'), this, this.player);
 		this.pipe2 = new window.Pipe2(this.el.find('.pipe2'), this, this.player, this.pipe1);
-		this.pipe3 = new window.Pipe3(this.el.find('.pipe3'), this);
-		this.pipe4 = new window.Pipe4(this.el.find('.pipe4'), this);
-		this.pipe5 = new window.Pipe5(this.el.find('.pipe5'), this);
-		this.pipe6 = new window.Pipe6(this.el.find('.pipe6'), this);
-		this.pipe7 = new window.Pipe7(this.el.find('.pipe7'), this);
-		this.pipe8 = new window.Pipe8(this.el.find('.pipe8'), this);
+		this.pipe3 = new window.Pipe3(this.el.find('.pipe3'), this, this.player);
+		this.pipe4 = new window.Pipe4(this.el.find('.pipe4'), this, this.player, this.pipe3);
+		this.pipe5 = new window.Pipe5(this.el.find('.pipe5'), this, this.player);
+		this.pipe6 = new window.Pipe6(this.el.find('.pipe6'), this, this.player, this.pipe5);
+		this.pipe7 = new window.Pipe7(this.el.find('.pipe7'), this, this.player);
+		this.pipe8 = new window.Pipe8(this.el.find('.pipe8'), this, this.player, this.pipe7);
 		this.isPlaying = false;
 		this.startPipes = false;
+		this.points = 0;
+		this.lastPipe = '';
 
 		// Cache a bound onFrame since we need it each frame.
 		this.onFrame = this.onFrame.bind(this);
@@ -102,11 +104,11 @@ Game.prototype.PlaySong = function(){
 			this.pipe1.onFrame(delta);
 			this.pipe2.onFrame(delta);
 
-			//this.pipe3.onFrame(delta);
-			//this.pipe4.onFrame(delta);
+			this.pipe3.onFrame(delta);
+			this.pipe4.onFrame(delta);
 
-			//this.pipe5.onFrame(delta);
-			//this.pipe6.onFrame(delta);
+			this.pipe5.onFrame(delta);
+			this.pipe6.onFrame(delta);
 
 			//this.pipe7.onFrame(delta);
 			//this.pipe8.onFrame(delta);
@@ -139,10 +141,10 @@ Game.prototype.PlaySong = function(){
 		this.pipe1.pipeSpawn();
 		this.pipe2.pipeSpawn();
 
-		//this.pipe3.pipeSpawn();
-		//this.pipe4.pipeSpawn();
-		//this.pipe5.pipeSpawn();
-		//this.pipe6.pipeSpawn();
+		this.pipe3.pipeSpawn();
+		this.pipe4.pipeSpawn();
+		this.pipe5.pipeSpawn();
+		this.pipe6.pipeSpawn();
 		//this.pipe7.pipeSpawn();
 		//this.pipe8.pipeSpawn();
 		
@@ -164,7 +166,6 @@ Game.prototype.PlaySong = function(){
 	Game.prototype.gameover = function() {
 		this.player.begin = false;
 		this.isPlaying = false;
-
 		//this.PlaySong();
 
 		this.startPipes = false;
@@ -183,8 +184,14 @@ Game.prototype.PlaySong = function(){
 				});
 	};
 
-	Game.prototype.testfunc = function() {
-		console.log("Inside the test");
+	Game.prototype.postPoint = function(pipeName) {
+		if(pipeName !== this.lastPipe){
+			this.points++;
+			this.lastPipe = pipeName;
+			console.log("lastPipe: " + this.lastPipe);
+		}
+		
+
 	};
 
 	/**

@@ -21,6 +21,7 @@ window.Player = (function() {
 	var Player = function(el, game) {
 		this.el = el;
 		this.game = game;
+		this.dead = false;
 		this.pos = { x: 0, y: 0 };
 	};
 
@@ -47,13 +48,6 @@ window.Player = (function() {
 		if (Controls.keys.up) {
 			this.pos.y -= delta * SPEED;
 		}*/
-		 $(function(){
-        var x = 0;
-        setInterval(function(){
-            x-=1;
-            $('.Movground').css('background-position', x + 'px 0');
-        }, 10);
-    })
 		if(pause){
 			//this.pos.y += 5*Math.cos(frames/10);
 			//append class to player that moves him on the y-axis
@@ -65,11 +59,12 @@ window.Player = (function() {
 			//this.game.testfunc();
 			//this.pipes.pipeSpawn();
 		}
-		/*else{
-			this.pos.y -=19 + 19;
-			
-		}*/
-		if(Controls.keys.space){
+		if(this.dead){
+			this.pos.y += delta * SPEED;
+			this.checkCollisionWithBounds();
+			//console.log("falling");
+
+		}else if(Controls.keys.space){
 			this.begin = true;
 			pause = false;
 			this.pos.y -= delta * 3*SPEED;
