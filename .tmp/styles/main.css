@@ -35,10 +35,7 @@
   height: 0.5em;
   width: 2.3em;
   background: yellow;
-  /*virkar ekki
-	-webkit-transform: rotate(30deg);
-	transform: rotate(30deg);
-	*/
+
   -webkit-transform-origin: top left;
   transform-origin: top left;
   -webkit-animation: 0.2s flap alternate infinite;
@@ -104,6 +101,13 @@
 
 /**
 * Reset transform to animate it into the correct spot on the screen.
+=======
+  z-index: 3;
+}
+
+/**
+* Reset transform to animate it into the correct spot on the screen.
+>>>>>>> d50ed5b0089f7fcf0cba43bebffb574e9cce8e19
 */
 
 .Scoreboard.is-visible {
@@ -122,6 +126,12 @@
 .Scoreboard-restartText {
   font-family: 'Comic Sans MS', serif;
   font-size: 2.4em;
+  color: white;
+}
+
+.Scoreboard-points {
+  font-family: 'Comic Sans MS', serif;
+  font-size: 3.4em;
   color: white;
 }
 

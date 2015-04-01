@@ -27,7 +27,11 @@
 .pipe4 {
   background: url('http://s21.postimg.org/kyr2rnpzr/pipe.png') bottom;
   position: absolute;
+<<<<<<< HEAD
   height: 60em;
+=======
+  height: 100em;
+>>>>>>> d50ed5b0089f7fcf0cba43bebffb574e9cce8e19
   width: 6em;
   z-index: 2;
 }
@@ -43,6 +47,7 @@
 .pipe6 {
   background: url('http://s21.postimg.org/kyr2rnpzr/pipe.png') bottom;
   position: absolute;
+<<<<<<< HEAD
   height: 60em;
   width: 6em;
   z-index: 2;
@@ -59,6 +64,8 @@
 .pipe8 {
   background: url('http://s21.postimg.org/kyr2rnpzr/pipe.png') bottom;
   position: absolute;
+=======
+>>>>>>> d50ed5b0089f7fcf0cba43bebffb574e9cce8e19
   height: 100em;
   width: 6em;
   z-index: 2;
