@@ -21,6 +21,7 @@ window.Game = (function() {
 		this.isPlaying = false;
 		this.startPipes = false;
 		this.points = 0;
+		this.highscore = 0;
 		this.lastPipe = '';
 
 		// Cache a bound onFrame since we need it each frame.
@@ -167,11 +168,15 @@ Game.prototype.PlaySong = function(){
 		this.player.begin = false;
 		this.isPlaying = false;
 		//this.PlaySong();
-
 		this.startPipes = false;
 		this.player.dead = false;
 
-
+		console.log("points: " + this.points);
+		if(this.points > this.highscore){
+			this.highscore = this.points;
+		}
+		document.getElementById('points').innerHTML='Points: ' + this.points;
+		document.getElementById('highscore').innerHTML='Your highscore: ' + this.highscore;
 		// Should be refactored into a Scoreboard class.
 		var that = this;
 		var scoreboardEl = this.el.find('.Scoreboard');
@@ -182,6 +187,8 @@ Game.prototype.PlaySong = function(){
 					scoreboardEl.removeClass('is-visible');
 					that.start();
 				});
+
+		this.points = 0;
 	};
 
 	Game.prototype.postPoint = function(pipeName) {

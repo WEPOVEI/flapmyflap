@@ -100,7 +100,7 @@
   text-align: center;
   -webkit-transform: translate(0, -40em);
   -webkit-transition: -webkit-transform 0.5s;
-  z-index: 3;
+  z-index: 5;
 }
 
 /**
@@ -112,7 +112,7 @@
 }
 
 .Scoreboard-restart {
-  margin-top: 20em;
+  margin-top: 12em;
   font-size: inherit;
   padding: 0.4em 1.5em;
   border: 0.2em solid white;
@@ -128,7 +128,13 @@
 
 .Scoreboard-points {
   font-family: 'Comic Sans MS', serif;
-  font-size: 3.4em;
+  font-size: 4.4em;
+  color: white;
+}
+
+.Scoreboard-highscore {
+  font-family: 'Comic Sans MS', serif;
+  font-size: 2.4em;
   color: white;
 }
 

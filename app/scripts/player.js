@@ -69,9 +69,11 @@ window.Player = (function() {
 			pause = false;
 			this.pos.y -= delta * 3*SPEED;
 
+		}else{
+			this.checkCollisionWithBounds();
 		}
 
-		this.checkCollisionWithBounds();
+		
 
 		// Update UI
 		this.el.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');

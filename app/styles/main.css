@@ -85,7 +85,7 @@
 }
 
 .Scoreboard-restart {
-	margin-top: 20em;
+	margin-top: 12em;
 	font-size: inherit;
 	padding: 0.4em 1.5em;
 	border: 0.2em solid white;
@@ -99,7 +99,12 @@ color: white;
 }
 .Scoreboard-points {
 font-family: 'Comic Sans MS', serif;
-font-size: 3.4em;
+font-size: 4.4em;
+color: white;
+}
+.Scoreboard-highscore {
+font-family: 'Comic Sans MS', serif;
+font-size: 2.4em;
 color: white;
 }
 body {
