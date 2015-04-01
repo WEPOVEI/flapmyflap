@@ -184,6 +184,23 @@ z-index: -1;
 	-o-animation: animatedBackground 3s linear infinite;
 }
 
+.Backimg.stop{
+
+	background-image: url('../images/backimg.png') repeat-x;
+	background-size: 10em 20em;
+	position:fixed;
+	height: 20em;
+	width:480em;
+	top:42em;
+	left:0;
+	z-index:-1;
+	animation: animatedBackground 0s linear infinite;
+	-moz-animation: animatedBackground 0s linear infinite;
+	-webkit-animation: animatedBackground 0s linear infinite;
+	-ms-animation: animatedBackground 0s linear infinite;
+	-o-animation: animatedBackground 0s linear infinite;
+}
+
 
 
 

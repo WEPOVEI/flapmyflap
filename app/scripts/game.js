@@ -166,6 +166,8 @@ Game.prototype.PlaySong = function(){
 	 * Signals that the game is over.
 	 */
 	Game.prototype.gameover = function() {
+
+		$('.Backimg').addClass('stop');
 		this.player.begin = false;
 		this.isPlaying = false;
 		//this.PlaySong();

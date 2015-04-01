@@ -40,6 +40,7 @@ window.Pipe3 = (function() {
 		   		//console.log("Arekstur");
 		   		//this.gameover();
 		   		this.player.dead = true;
+		   		$('.Backimg').addClass('stop');
 		   }		
 		}
 		if(this.maxX < this.player.pos.x){
@@ -111,6 +112,7 @@ window.Pipe4 = (function() {
 		   if(Math.floor(this.player.pos.y) <= (this.pos.y + 100)) {
 		   		//console.log("Arekstur");
 		   		this.player.dead = true;
+		   		$('.Backimg').addClass('stop');
 		   		//this.game.gameover();
 		   }		
 		}

@@ -31,6 +31,7 @@ window.Player = (function() {
 	Player.prototype.reset = function() {
 		this.pos.x = INITIAL_POSITION_X;
 		this.pos.y = INITIAL_POSITION_Y;
+		$('.Backimg').removeClass('stop');
 		
 		
 	};
