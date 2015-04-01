@@ -146,6 +146,7 @@ Game.prototype.PlaySong = function(){
 		this.pipe4.pipeSpawn();
 		this.pipe5.pipeSpawn();
 		this.pipe6.pipeSpawn();
+
 		//this.pipe7.pipeSpawn();
 		//this.pipe8.pipeSpawn();
 		
@@ -187,7 +188,7 @@ Game.prototype.PlaySong = function(){
 					scoreboardEl.removeClass('is-visible');
 					that.start();
 				});
-
+		this.lastPipe = '';
 		this.points = 0;
 	};
 
