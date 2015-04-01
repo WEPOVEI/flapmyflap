@@ -40,6 +40,7 @@
 	transform-origin: top left;
 	animation: 0.2s flap alternate infinite;
 }
+
 @keyframes flap {
 	from {
 		transform: rotateX(0);
@@ -48,20 +49,13 @@
 		transform: rotateX(180deg);
 	}
 }
-.Player.Wiggle{
-	-webkit-animation: wiggle 4s eas-in-out infinite;
+
+.Player.rotate{
+  -ms-transform: rotate(-7deg); /* IE 9 */
+    -webkit-transform: rotate(-7deg); /* Chrome, Safari, Opera */
+    transform: rotate(-7deg);
 }
-@-webkit-keyframes wiggle {
-	from{
-		top: 3em;
-	}
-	50%{
-		top:2em;
-	}
-	to {
-		top:3em;
-	}
-}
+
 .Scoreboard {
 	position: absolute;
 	left: 50%;

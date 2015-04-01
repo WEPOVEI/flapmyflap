@@ -14,7 +14,7 @@ window.Player = (function() {
 	var frames = 1;
 
 	var pause = true;
-	$('.Player').addClass('Wiggle');
+	
 
 	/*for testing purposes*/
 
@@ -51,7 +51,10 @@ window.Player = (function() {
 		if(pause){
 			//this.pos.y += 5*Math.cos(frames/10);
 			//append class to player that moves him on the y-axis
-
+			/*$(".Player").click(function(){
+				console.log("rotating");
+				$(".Player").addClass("rotate");
+			});*/
 		}
 
 		if(this.begin){
@@ -67,6 +70,7 @@ window.Player = (function() {
 		}else if(Controls.keys.space){
 			this.begin = true;
 			pause = false;
+			$(".Player").addClass("rotate");
 			this.pos.y -= delta * 3*SPEED;
 
 		}

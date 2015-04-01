@@ -35,7 +35,10 @@
   height: 0.5em;
   width: 2.3em;
   background: yellow;
-
+  /*virkar ekki
+	-webkit-transform: rotate(30deg);
+	transform: rotate(30deg);
+	*/
   -webkit-transform-origin: top left;
   transform-origin: top left;
   -webkit-animation: 0.2s flap alternate infinite;
@@ -66,22 +69,11 @@
   }
 }
 
-.Player.Wiggle {
-  -webkit-animation: wiggle 4s eas-in-out infinite;
-}
-
-@-webkit-keyframes wiggle {
-  from {
-    top: 3em;
-  }
-
-  50% {
-    top: 2em;
-  }
-
-  to {
-    top: 3em;
-  }
+.Player.rotate {
+  /* IE 9 */
+  -webkit-transform: rotate(-7deg);
+  /* Chrome, Safari, Opera */
+  transform: rotate(-7deg);
 }
 
 .Scoreboard {
@@ -97,17 +89,11 @@
   text-align: center;
   -webkit-transform: translate(0, -40em);
   -webkit-transition: -webkit-transform 0.5s;
+  z-index: 5;
 }
 
 /**
 * Reset transform to animate it into the correct spot on the screen.
-=======
-  z-index: 3;
-}
-
-/**
-* Reset transform to animate it into the correct spot on the screen.
->>>>>>> d50ed5b0089f7fcf0cba43bebffb574e9cce8e19
 */
 
 .Scoreboard.is-visible {
