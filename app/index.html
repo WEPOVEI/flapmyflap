@@ -1,0 +1,98 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>html5 game new</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+       <!-- <link rel="shortcut icon" href="/favicon.ico">-->
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- build:css styles/vendor.css -->
+        <!-- bower:css -->
+
+        <!-- endbower -->
+        <!-- endbuild -->
+        <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="styles/pipes.css">
+        <link rel="stylesheet" href="styles/ground.css">
+        <!-- endbuild -->
+    </head>
+    <body>
+        <!--[if lt IE 10]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+            <div class="GameCanvas">
+
+           <!--  <div class="x1">
+                <div class="cloud"></div>
+             </div>
+
+            <div class="x2">
+                <div class="cloud"></div>
+            </div>
+
+            <div class="x3">
+                <div class="cloud"></div>
+            </div>
+
+            <div class="x4">
+                <div class="cloud"></div>
+            </div>
+
+            <div class="x5">
+                <div class="cloud"></div>
+            </div>-->
+
+
+            <div class="Player" id="Player">
+                <div class="Player-eyes"></div>
+                <div class="Player-eyeball"></div>
+                <div class="Player-wings"></div>
+            </div>
+
+            <div class="Movground"></div>
+            <div class="pipe1"></div>
+            <div class="pipe2"></div>
+
+            <div class="pipe3"></div>
+            <div class="pipe4"></div>
+
+            <div class="pipe5"></div>
+            <div class="pipe6"></div>
+
+            <div class="pipe7"></div>
+            <div class="pipe8"></div>
+
+            <!--<div class="pipe"></div>-->
+            
+            <div class="Scoreboard">
+                <button class="Scoreboard-restart">
+                    <span class="Scoreboard-restartText">Restart</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- build:js scripts/vendor.js -->
+        <!-- bower:js -->
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- build:js({app,.tmp}) scripts/main.js -->
+        <script src="scripts/main.js"></script>
+        <script src="scripts/controls.js"></script>
+        <script src="scripts/game.js"></script>
+        <script src="scripts/player.js"></script>
+        <script src="scripts/utils.js"></script>
+        <script src="scripts/pipes.js"></script>
+        <script src="scripts/pipes2.js"></script>
+        <script src="scripts/pipes3.js"></script>
+        <script src="scripts/pipes4.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
