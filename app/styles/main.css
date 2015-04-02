@@ -73,6 +73,15 @@
 	z-index: 5;
 }
 
+.Score-count {
+position: absolute;
+left: 50%;
+top: 1em;
+font-family: 'Comic Sans MS', serif;
+font-size: 4.4em;
+color: white;
+}
+
 /**
 * Reset transform to animate it into the correct spot on the screen.
 */

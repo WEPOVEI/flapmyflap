@@ -153,9 +153,6 @@ Game.prototype.PlaySong = function(){
 
 		this.earth.earthSpawn();
 		this.earth2.earthSpawn();
-
-		//this.pipe7.pipeSpawn();
-		//this.pipe8.pipeSpawn();
 		
 	    /*
 	     * Pipes end
@@ -166,6 +163,7 @@ Game.prototype.PlaySong = function(){
 	 * Resets the state of the game so a new game can be started.
 	 */
 	Game.prototype.reset = function() {
+		document.getElementById('count').innerHTML= 0;
 		this.player.reset();
 	};
 
@@ -174,7 +172,9 @@ Game.prototype.PlaySong = function(){
 	 */
 	Game.prototype.gameover = function() {
 
-		$('.Backimg').addClass('stop');
+		document.getElementById('count').innerHTML= '';
+
+		//$('.Backimg').addClass('stop');
 		this.player.begin = false;
 		this.isPlaying = false;
 		//this.PlaySong();
@@ -204,6 +204,7 @@ Game.prototype.PlaySong = function(){
 	Game.prototype.postPoint = function(pipeName) {
 		if(pipeName !== this.lastPipe){
 			this.points++;
+			document.getElementById('count').innerHTML= this.points;
 			this.lastPipe = pipeName;
 			console.log("lastPipe: " + this.lastPipe);
 		}
