@@ -21,7 +21,7 @@ window.Pipe7 = (function() {
 		this.pos.y = this.startY + randomNr;
 
 		// Update UI
-		this.pipe7.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
+		this.pipe7.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 		console.log("calling onFrame");
 	};
 
@@ -53,7 +53,7 @@ window.Pipe7 = (function() {
 			this.pos.x = this.startX;
 			this.pos.y = this.startY + randomNr;
 		}
-		this.pipe7.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
+		this.pipe7.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 	};
 
 	Pipe7.prototype.getY = function() {
@@ -89,7 +89,7 @@ window.Pipe8 = (function() {
 		this.pos.y = this.pipe7.getY() - 115;
 		console.log("y: " + (this.pos.y + 100));
 		// Update UI
-		this.pipe8.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
+		this.pipe8.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 	};
 
 	var SPEED = 30;
@@ -118,7 +118,7 @@ window.Pipe8 = (function() {
 			this.pos.x = this.startX;
 			this.pos.y = this.pipe7.getY() - 115;
 		}
-		this.pipe8.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
+		this.pipe8.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 		//console.log("pos: " + this.pos.x  + ", " + this.pos.y);
 	};
 
