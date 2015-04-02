@@ -52,7 +52,6 @@ window.Player = (function() {
 			this.begin = true;
 			pause = false;
 			//$(".Player").addClass("rotate");
-			this.pos.y -= delta * 3*SPEED;
 			//this.mouseClick = 0;
 			//$('Player').toggleClass('rotated');
 			$('.Player').removeClass('wiggle');
