@@ -27,10 +27,11 @@ window.Pipe1 = (function() {
 	var SPEED = 30;
 
 	Pipe1.prototype.onFrame = function(delta) {
+		
 		if(!this.player.dead){
 			this.pos.x -= delta * SPEED;
 		}
-		
+
 		this.minX = this.pos.x - 6;
 		this.maxX = this.pos.x + 6;
 
@@ -86,7 +87,6 @@ window.Pipe2 = (function() {
 
 	Pipe2.prototype.pipeSpawn = function() {
 
-		//console.log(this.pipe1.getY());
 		this.pos.x = this.startX;
 		this.pos.y = this.pipe1.getY() - this.pipeGap;//115;
 		//console.log("y: " + (this.pos.y + 100));
@@ -97,7 +97,6 @@ window.Pipe2 = (function() {
 	var SPEED = 30;
 
 	Pipe2.prototype.onFrame = function(delta) {
-		
 		if(!this.player.dead){
 			//console.log("trueee");
 			this.pos.x -= delta * SPEED;

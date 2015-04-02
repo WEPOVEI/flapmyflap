@@ -1,4 +1,3 @@
-
 window.Game = (function() {
 	'use strict';
 
@@ -18,6 +17,8 @@ window.Game = (function() {
 		this.pipe6 = new window.Pipe6(this.el.find('.pipe6'), this, this.player, this.pipe5);
 		this.pipe7 = new window.Pipe7(this.el.find('.pipe7'), this, this.player);
 		this.pipe8 = new window.Pipe8(this.el.find('.pipe8'), this, this.player, this.pipe7);
+		this.earth = new window.Earth(this.el.find('.Earth'), this, this.player);
+		this.earth2 = new window.Earth2(this.el.find('.Earth2'), this, this.player);
 		this.isPlaying = false;
 		this.startPipes = false;
 		this.points = 0;
@@ -111,10 +112,13 @@ Game.prototype.PlaySong = function(){
 			this.pipe5.onFrame(delta);
 			this.pipe6.onFrame(delta);
 
+			
+
 			//this.pipe7.onFrame(delta);
 			//this.pipe8.onFrame(delta);
 		}
-
+		this.earth.onFrame(delta);
+		this.earth2.onFrame(delta);
 		// Request next frame.
 		window.requestAnimationFrame(this.onFrame);
 	};
@@ -146,6 +150,9 @@ Game.prototype.PlaySong = function(){
 		this.pipe4.pipeSpawn();
 		this.pipe5.pipeSpawn();
 		this.pipe6.pipeSpawn();
+
+		this.earth.earthSpawn();
+		this.earth2.earthSpawn();
 
 		//this.pipe7.pipeSpawn();
 		//this.pipe8.pipeSpawn();

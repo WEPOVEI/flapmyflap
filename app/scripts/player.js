@@ -49,6 +49,7 @@ window.Player = (function() {
 		if (Controls.keys.up) {
 			this.pos.y -= delta * SPEED;
 		}*/
+
 		if(pause){
 			//this.pos.y += 5*Math.cos(frames/10);
 			//append class to player that moves him on the y-axis
@@ -73,12 +74,11 @@ window.Player = (function() {
 			pause = false;
 			$(".Player").addClass("rotate");
 			this.pos.y -= delta * 3*SPEED;
+			//this.mouseClick = 0;
 
 		}else{
 			this.checkCollisionWithBounds();
 		}
-
-		
 
 		// Update UI
 		this.el.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');

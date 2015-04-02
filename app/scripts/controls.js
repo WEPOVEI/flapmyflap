@@ -24,12 +24,18 @@ window.Controls = (function() {
         this.keys = {};
         $(window)
             .on('keydown', this._onKeyDown.bind(this))
-            .on('keyup', this._onKeyUp.bind(this));
+            .on('keyup', this._onKeyUp.bind(this))
+            .on('mousedown', this._onKeyDown.bind(this))
+            .on('mouseup', this._onKeyUp.bind(this));
     };
 
     Controls.prototype._onKeyDown = function(e) {
         this.isPlaying = true;
         // Only jump if space wasn't pressed.
+        if(e.type == 'mousedown'){
+            e.keyCode = 32;
+            //console.log(e.keyCode);
+        }
         if (e.keyCode === 32 && !this.keys.space) {
             this._didJump = true;
         }
@@ -43,6 +49,9 @@ window.Controls = (function() {
     };
 
     Controls.prototype._onKeyUp = function(e) {
+        if(e.type == 'mouseup'){
+            e.keyCode = 32;
+        }
         if (e.keyCode in KEYS) {
             var keyName = KEYS[e.keyCode];
             this.keys[keyName] = false;
