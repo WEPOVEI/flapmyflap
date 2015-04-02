@@ -8,6 +8,7 @@
 	border-radius: 2em;
 	background: blue;
 	z-index: 2;
+	transform:translateZ(0);
 }
 .Player-eyes{
 	position: absolute;
@@ -170,10 +171,10 @@ z-index: -1;
 .Backimg{
 
 	background-image: url('../images/backimg.png') repeat-x;
-	background-size: 10em 20em;
+	background-size: 20em 20em;
 	position:fixed;
 	height: 20em;
-	width:480em;
+	width:250em;
 	top:42em;
 	left:0;
 	z-index:-1;

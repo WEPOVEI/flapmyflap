@@ -1,0 +1,49 @@
+/* Pipes */
+
+.pipe1 {
+  background: url('http://s21.postimg.org/kyr2rnpzr/pipe.png') top;
+  position: absolute;
+  height: 100em;
+  width: 6em;
+  z-index: 2;
+}
+
+.pipe2 {
+  background: url('http://s21.postimg.org/kyr2rnpzr/pipe.png') bottom;
+  position: absolute;
+  height: 100em;
+  width: 6em;
+  z-index: 2;
+}
+
+.pipe3 {
+  background: url('http://s21.postimg.org/kyr2rnpzr/pipe.png') top;
+  position: absolute;
+  height: 100em;
+  width: 6em;
+  z-index: 2;
+}
+
+.pipe4 {
+  background: url('http://s21.postimg.org/kyr2rnpzr/pipe.png') bottom;
+  position: absolute;
+  height: 100em;
+  width: 6em;
+  z-index: 2;
+}
+
+.pipe5 {
+  background: url('http://s21.postimg.org/kyr2rnpzr/pipe.png') top;
+  position: absolute;
+  height: 100em;
+  width: 6em;
+  z-index: 2;
+}
+
+.pipe6 {
+  background: url('http://s21.postimg.org/kyr2rnpzr/pipe.png') bottom;
+  position: absolute;
+  height: 100em;
+  width: 6em;
+  z-index: 2;
+}
