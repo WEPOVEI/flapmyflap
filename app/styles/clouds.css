@@ -16,7 +16,7 @@
 	top:2em;
 	left: 200em;
 	z-index:1;
-
+	-webkit-transform: translate3d(0,0,0);
 	animation: anicloud 15s linear infinite;
 	-webkit-animation: anicloud 15s linear infinite;
 }
@@ -29,17 +29,17 @@
 	top:4em;
 	left: 200em;
 	z-index:0;
-
+	-webkit-transform: translate3d(0,0,0);
 	animation: anicloud 20s linear infinite;
 	-webkit-animation: anicloud 20s linear infinite;
 }
 @keyframes anicloudbig {
-	from { left: 100; }
-	to { left: -100%; }
+	from { left: 200; }
+	to { left: -20%; }
 }
 @-webkit-keyframes anicloudbig {
-	from {left: 100; }
-	to { left: -100%; }
+	from {left: 200; }
+	to { left: -20%; }
 }
 .bigcloud{
 	background-image: url('../images/bigcloud.png');
@@ -48,9 +48,9 @@
 	height: 15em;
 	width:15em;
 	top:4em;
-	left:100em;
+	left:200em;
 	z-index:0;
-
-	animation: anicloudbig 25s linear infinite;
-	-webkit-animation: anicloudbig 25s linear infinite;
+	-webkit-transform: translate3d(0,0,0);
+	animation: anicloudbig 43s linear infinite;
+	-webkit-animation: anicloudbig 43s linear infinite;
 }

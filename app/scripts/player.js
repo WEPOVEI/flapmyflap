@@ -11,8 +11,6 @@ window.Player = (function() {
 	var INITIAL_POSITION_X = 30;
 	var INITIAL_POSITION_Y = 25;
 
-	var frames = 1;
-
 	var pause = true;
 	
 
@@ -37,44 +35,28 @@ window.Player = (function() {
 	};
 
 	Player.prototype.onFrame = function(delta) {
-		/*if (Controls.keys.right) {
-			this.pos.x += delta * SPEED;
-		}
-		if (Controls.keys.left) {
-			this.pos.x -= delta * SPEED;
-		}
-		if (Controls.keys.down) {
-			this.pos.y += delta * SPEED;
-		}
-		if (Controls.keys.up) {
-			this.pos.y -= delta * SPEED;
-		}*/
 
 		if(pause){
-			//this.pos.y += 5*Math.cos(frames/10);
-			//append class to player that moves him on the y-axis
-			/*$(".Player").click(function(){
-				console.log("rotating");
-				$(".Player").addClass("rotate");
-			});*/
+			$('.Player').addClass('wiggle');
+			
 		}
 
 		if(this.begin){
-			this.pos.y += delta * SPEED;
-			//this.game.testfunc();
-			//this.pipes.pipeSpawn();
+			this.pos.y += delta * (SPEED*1.5);
 		}
 		if(this.dead){
 			this.pos.y += delta * SPEED;
 			this.checkCollisionWithBounds();
-			//console.log("falling");
+			
 
 		}else if(Controls.keys.space){
 			this.begin = true;
 			pause = false;
-			$(".Player").addClass("rotate");
-			this.pos.y -= delta * 3*SPEED;
-			//this.mouseClick = 0;
+			//$(".Player").addClass("rotate");
+			$('.Player').removeClass('wiggle');
+
+			this.pos.y -= delta * (SPEED*3.5);
+			
 
 		}else{
 			this.checkCollisionWithBounds();
@@ -89,6 +71,7 @@ window.Player = (function() {
 			this.pos.x + WIDTH > this.game.WORLD_WIDTH ||
 			/*this.pos.y < 0 ||*/
 			this.pos.y + HEIGHT > this.game.WORLD_HEIGHT) {
+			pause = true;
 			return this.game.gameover();
 		}
 	};
