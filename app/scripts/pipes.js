@@ -21,7 +21,7 @@ window.Pipe1 = (function() {
 		this.pos.y = this.startY + randomNr;
 
 		// Update UI
-		this.pipe1.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
+		this.pipe1.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 	};
 
 	var SPEED = 30;
@@ -53,7 +53,7 @@ window.Pipe1 = (function() {
 			this.pos.x = this.startX;
 			this.pos.y = this.startY + randomNr;
 		}
-		this.pipe1.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
+		this.pipe1.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 	};
 
 	Pipe1.prototype.getY = function() {
@@ -91,7 +91,7 @@ window.Pipe2 = (function() {
 		this.pos.y = this.pipe1.getY() - this.pipeGap;//115;
 		//console.log("y: " + (this.pos.y + 100));
 		// Update UI
-		this.pipe2.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
+		this.pipe2.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 	};
 
 	var SPEED = 30;
@@ -120,7 +120,7 @@ window.Pipe2 = (function() {
 			this.pos.x = this.startX;
 			this.pos.y = this.pipe1.getY() - this.pipeGap;
 		}
-		this.pipe2.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
+		this.pipe2.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 		//console.log("pos: " + this.pos.x  + ", " + this.pos.y);
 	};
 

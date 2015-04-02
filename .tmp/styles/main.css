@@ -19,6 +19,8 @@
   border-radius: 4em;
   height: 1.5em;
   width: 1.5em;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .Player-eyeball {
@@ -29,6 +31,8 @@
   border-radius: 4em;
   height: 0.5em;
   width: 0.5em;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .Player-wings {
@@ -38,10 +42,6 @@
   height: 0.5em;
   width: 2.3em;
   background: yellow;
-  /*virkar ekki
-	-webkit-transform: rotate(30deg);
-	transform: rotate(30deg);
-	*/
   -webkit-transform-origin: top left;
   transform-origin: top left;
   -webkit-animation: 0.2s flap alternate infinite;

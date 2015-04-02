@@ -1,0 +1,32 @@
+@keyframes anicloud {
+  from {
+    left: 200;
+  }
+
+  to {
+    left: -100%;
+  }
+}
+
+@-webkit-keyframes anicloud {
+  from {
+    left: 200;
+  }
+
+  to {
+    left: -100%;
+  }
+}
+
+.mincloud1 {
+  background-image: url('../images/minicloud1.png');
+  background-size: 20em 20em;
+  position: fixed;
+  height: 15em;
+  width: 15em;
+  top: 2em;
+  left: 200em;
+  z-index: 1;
+  animation: anicloud 9s linear infinite;
+  -webkit-animation: anicloud 9s linear infinite;
+}

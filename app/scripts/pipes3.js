@@ -21,7 +21,7 @@ window.Pipe5 = (function() {
 		this.pos.y = this.startY + randomNr;
 
 		// Update UI
-		this.pipe5.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
+		this.pipe5.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 	};
 
 	var SPEED = 30;
@@ -53,7 +53,7 @@ window.Pipe5 = (function() {
 			this.pos.x = this.startX - 70;
 			this.pos.y = this.startY + randomNr;
 		}
-		this.pipe5.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
+		this.pipe5.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 	};
 
 	Pipe5.prototype.getY = function() {
@@ -91,7 +91,7 @@ window.Pipe6 = (function() {
 		this.pos.y = this.pipe5.getY() - this.pipeGap;
 		//console.log("y: " + (this.pos.y + 100));
 		// Update UI
-		this.pipe6.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
+		this.pipe6.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 	};
 
 	var SPEED = 30;
@@ -120,7 +120,7 @@ window.Pipe6 = (function() {
 			this.pos.x = this.startX - 70;
 			this.pos.y = this.pipe5.getY() - this.pipeGap;
 		}
-		this.pipe6.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
+		this.pipe6.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 		//console.log("pos: " + this.pos.x  + ", " + this.pos.y);
 	};
 
