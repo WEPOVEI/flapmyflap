@@ -1,8 +1,8 @@
 
 .Player {
 	position: absolute;
-	top: 0;
-	left: 0;
+	top: 0em;
+	left: 0em;
 	width: 6em;
 	height: 5em;
 	border-radius: 2em;
@@ -44,19 +44,6 @@
 	width: 0.5em;
 	transform:translateZ(0);
 }
-.Player-wings{
-	position: absolute;
-	left:1.25em;
-	top: 2.8em;
-	height: 0.5em;
-	width: 2.3em;
-
-	background: yellow;
-
-	transform-origin: top left;
-	animation: 0.2s flap alternate infinite;
-}
-
 @keyframes flap {
 	from {
 		transform: rotateX(0);
@@ -65,7 +52,34 @@
 		transform: rotateX(180deg);
 	}
 }
+.Player-wings{
+	position: absolute;
+	left:1.25em;
+	top: 2.8em;
+	height: 0.5em;
+	width: 2.3em;
 
+	background: yellow;
+    -webkit-transform: translate3d(0,0,0);
+	transform-origin: top left;
+	-webkit-animation: 0.2s flap alternate infinite;
+	animation: 0.2s flap alternate infinite;
+}
+@keyframes wiggle{
+	0%{top: 0em;}
+	25% {top: -1em;}
+	50% {top: -2em;}
+	75% {top: -1em;}
+	100%{top: 0em;}
+}
+
+.Player.wiggle{
+	/*transform: translate(0,-3px);
+    -webkit-transform: translate(0,-3px);*/
+	-webkit-transform: translate3d(0,0,0);
+	-webkit-animation: 2.5s wiggle infinite;
+
+}
 .Player.rotate{
     -ms-transform: rotate(-7deg); /* IE 9 */
     -webkit-transform: rotate(-7deg); /* Chrome, Safari, Opera */
@@ -82,6 +96,7 @@
 	box-sizing: border-box;
 	background: purple;
 	text-align: center;
+	-webkit-transform: translate3d(0,0,0);
 	-webkit-transform: translate(0, -40em);
 	-webkit-transition: -webkit-transform 0.5s;
 	z-index: 5;
@@ -94,6 +109,7 @@ top: 1em;
 font-family: 'Comic Sans MS', serif;
 font-size: 4.4em;
 color: white;
+z-index:5;
 }
 
 /**
@@ -139,19 +155,7 @@ padding: 0.2em 0;
 	0% { background-position: 0 0; }
 	100% { background-position: -300px 0; }
 }
-@-moz-keyframes animatedBackground {
-	0% { background-position: 0 0; }
-	100% { background-position: -300px 0; }
-}
 @-webkit-keyframes animatedBackground {
-	0% { background-position: 0 0; }
-	100% { background-position: -300px 0; }
-}
-@-ms-keyframes animatedBackground {
-	0% { background-position: 0 0; }
-	100% { background-position: -300px 0; }
-}
-@-o-keyframes animatedBackground {
 	0% { background-position: 0 0; }
 	100% { background-position: -300px 0; }
 }
@@ -174,19 +178,7 @@ z-index: -1;
 	0% { background-position: 0 0; }
 	100% { background-position: -300px 0; }
 }
-@-moz-keyframes animatedBackground {
-	0% { background-position: 0 0; }
-	100% { background-position: -300px 0; }
-}
 @-webkit-keyframes animatedBackground {
-	0% { background-position: 0 0; }
-	100% { background-position: -300px 0; }
-}
-@-ms-keyframes animatedBackground {
-	0% { background-position: 0 0; }
-	100% { background-position: -300px 0; }
-}
-@-o-keyframes animatedBackground {
 	0% { background-position: 0 0; }
 	100% { background-position: -300px 0; }
 }
@@ -200,11 +192,9 @@ z-index: -1;
 	top:42em;
 	left:0;
 	z-index:-1;
+	-webkit-transform: translate3d(0,0,0);
 	animation: animatedBackground 3s linear infinite;
-	-moz-animation: animatedBackground 3s linear infinite;
 	-webkit-animation: animatedBackground 3s linear infinite;
-	-ms-animation: animatedBackground 3s linear infinite;
-	-o-animation: animatedBackground 3s linear infinite;
 }
 
 .Backimg.stop{
@@ -217,11 +207,9 @@ z-index: -1;
 	top:42em;
 	left:0;
 	z-index:-1;
+	-webkit-transform: translate3d(0,0,0);
 	animation: animatedBackground 0s linear infinite;
-	-moz-animation: animatedBackground 0s linear infinite;
 	-webkit-animation: animatedBackground 0s linear infinite;
-	-ms-animation: animatedBackground 0s linear infinite;
-	-o-animation: animatedBackground 0s linear infinite;
 }
 
 
