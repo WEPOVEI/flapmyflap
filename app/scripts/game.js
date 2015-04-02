@@ -127,7 +127,7 @@ Game.prototype.PlaySong = function(){
 	 * Starts a new game.
 	 */
 	Game.prototype.start = function() {
-
+		
 		this.reset();
 		//this.pipe1.pipeSpawn();
 		// Restart the onFrame loop

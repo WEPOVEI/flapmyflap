@@ -31,8 +31,7 @@ window.Player = (function() {
 	Player.prototype.reset = function() {
 		this.pos.x = INITIAL_POSITION_X;
 		this.pos.y = INITIAL_POSITION_Y;
-		$('.Backimg').removeClass('stop');
-		
+		//$('.Backimg').removeClass('stop');
 		
 	};
 
@@ -72,9 +71,10 @@ window.Player = (function() {
 		}else if(Controls.keys.space){
 			this.begin = true;
 			pause = false;
-			$(".Player").addClass("rotate");
+			//$(".Player").addClass("rotate");
 			this.pos.y -= delta * 3*SPEED;
 			//this.mouseClick = 0;
+			//$('Player').toggleClass('rotated');
 
 		}else{
 			this.checkCollisionWithBounds();
