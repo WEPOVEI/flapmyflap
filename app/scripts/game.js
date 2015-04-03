@@ -25,59 +25,38 @@ window.Game = (function() {
 		this.highscore = 0;
 		this.lastPipe = '';
 
+		this.song = $('.playback').next('audio')[0];
+
 		// Cache a bound onFrame since we need it each frame.
 		this.onFrame = this.onFrame.bind(this);
 	};
-/*
-$(function () {
-    $(".playback").click(function (e) {
-    	this.isPlaying = true;
-       e.preventDefault();
-       console.log("im here");
-        var song = $(this).next('audio')[0];
-        if(this.isPlaying){
-        	console.log("hallo");
-        }
-        else{
-        	console.log("hallllo");
-        }
-       if (song.paused) {
-           song.play();
-           console.log("play");
-       } 
-       else{
-       	song.pause();
-       	console.log("pause");
-       }  
-    });
-});  */
 
-/*Game.prototype.PlaySong = function(){
-	var song = $(".playback").next('audio')[0];
-	if(this.isPlaying){
-		song.play();
+var mute = false;
+
+$(".onoffswitch-inner").on('click', function(){
+	if(mute){
+		mute = false;
 	}
 	else{
-		song.pause();	
+		mute = true;
 	}
-} */
-/*
-Game.prototype.PlaySong = function(){
-	$(".playback").click(function(e){
-		e.preventDefault();
-		var song = $(this).next('audio')[0];
+});
 
-		if(song.paused){
-			song.play();
-			console.log("play");
+Game.prototype.playSong = function(){
+	if(this.isPlaying){
+		if(mute){
+			this.song.pause();
+			this.song.currentTime = 0;
 		}
 		else{
-			song.pause();
-			console.log("paused");
+			this.song.play();
 		}
-	});
-};  */
-/*
+	}
+	else{
+		this.song.pause();
+		this.song.currentTime = 0;
+	}
+};
 	/**
 	 * Runs every frame. Calculates a delta and allows each game
 	 * entity to update itself.
@@ -127,12 +106,15 @@ Game.prototype.PlaySong = function(){
 	 * Starts a new game.
 	 */
 	Game.prototype.start = function() {
-		
+		this.player.dead = false;
+		this.player.begin = false;
+
 		this.reset();
 		//this.pipe1.pipeSpawn();
 		// Restart the onFrame loop
 		this.lastFrame = +new Date() / 1000;
 		window.requestAnimationFrame(this.onFrame);
+		this.playSong();
 		this.isPlaying = true;
 
 		
@@ -177,9 +159,10 @@ Game.prototype.PlaySong = function(){
 		//$('.Backimg').addClass('stop');
 		this.player.begin = false;
 		this.isPlaying = false;
-		//this.PlaySong();
 		this.startPipes = false;
 		this.player.dead = false;
+		this.playSong();
+
 
 		console.log("points: " + this.points);
 		if(this.points > this.highscore){

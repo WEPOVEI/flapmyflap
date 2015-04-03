@@ -10,16 +10,23 @@
 	z-index: 2;
 	transform:translateZ(0);
 
-	/*-webkit-transition: all 0.3s ease-in-out;
-	-moz-transition: all 0.3s ease-in-out;
-	-o-transition: all 0.3s ease-in-out;
-	transition: all 0.3s ease-in-out;*/
+}
+.Player.lookup{
+	-webkit-animation: rotation 4s linear;
+}
 
-	/*-webkit-transform: rotateY(60deg);
-    -moz-transform: rotateY(60deg);
-    -o-transform: rotateY(60deg);
-    -ms-transform: rotateY(60deg);
-    transform: rotateY(60deg);*/
+@-webkit-keyframes rotation {
+	    from {-webkit-transform: rotate(0deg);}
+	    to   {-webkit-transform: rotate(-70deg);}
+}
+
+@keyframes look {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(100deg);
+  }
 }
 
 /*.rotated { transform:rotate(25deg); -webkit-transform:rotate(25deg); -moz-transform:rotate(25deg); -o-transform:rotate(25deg); }
@@ -78,7 +85,6 @@
     -webkit-transform: translate(0,-3px);*/
 	-webkit-transform: translate3d(0,0,0);
 	-webkit-animation: 2.5s wiggle infinite;
-
 }
 .Player.rotate{
     -ms-transform: rotate(-7deg); /* IE 9 */

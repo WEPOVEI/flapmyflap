@@ -21,6 +21,8 @@ window.Player = (function() {
 		this.game = game;
 		this.dead = false;
 		this.pos = { x: 0, y: 0 };
+
+		this.lastY = INITIAL_POSITION_Y;
 	};
 
 	/**
@@ -37,11 +39,14 @@ window.Player = (function() {
 
 		if(pause){
 			$('.Player').addClass('wiggle');
+			//$('.Player').removeClass('lookup');
+			this.el.css('transform','translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 			
 		}
 
 		if(this.begin){
 			this.pos.y += delta * (SPEED*1.5);
+
 		}
 		if(this.dead){
 			this.pos.y += delta * SPEED;
@@ -52,19 +57,33 @@ window.Player = (function() {
 			this.begin = true;
 			pause = false;
 			//$(".Player").addClass("rotate");
-			this.pos.y -= delta * 3*SPEED;
 			//this.mouseClick = 0;
 			//$('Player').toggleClass('rotated');
+
 			$('.Player').removeClass('wiggle');
+			//$('.Player').addClass('lookup');
 
 			this.pos.y -= delta * (SPEED*3.5);
+			
+			if(this.game.isPlaying){
+				this.game.playSong();
+			} 
 
 		}else{
 			this.checkCollisionWithBounds();
 		}
 
 		// Update UI
-		this.el.css('transform','translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
+		if(this.lastY < this.pos.y){
+			this.el.css('transform','translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em) rotate(' + 23 + 'deg)');
+		}else if(this.lastY > this.pos.y){
+			this.el.css('transform','translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em) rotate(' + -23 + 'deg)');
+		}
+		this.lastY = this.pos.y;
+
+		//this.el.css('transform','translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
+
+		//this.el.css('transform', 'translateZ(0) rotate(' + -23 + 'deg)');
 	};
 
 	Player.prototype.checkCollisionWithBounds = function() {

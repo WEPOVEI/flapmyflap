@@ -21,6 +21,7 @@
         <link rel="stylesheet" href="styles/main.css">
         <link rel="stylesheet" href="styles/pipes.css">
         <link rel="stylesheet" href="styles/ground.css">
+        <link rel="stylesheet" href="styles/button.css">
         
         <!-- endbuild -->
     </head>
@@ -30,6 +31,26 @@
         <![endif]-->
 
             <div class="GameCanvas">
+                <div id="song" >
+
+                <a class="playback"> 
+                </a>
+
+                <audio>
+                    <source  src="NyanCat.mp3" type="audio/mpeg" />
+                </audio>
+            
+            </div>
+
+             <div class="onoffswitch">
+                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+                <label class="onoffswitch-label" for="myonoffswitch">
+                    <span class="onoffswitch-inner">
+                        <span class="onoffswitch-active"><span class="onoffswitch-switch">ON</span></span>
+                        <span class="onoffswitch-inactive"><span class="onoffswitch-switch">OFF</span></span>
+                    </span>
+                </label>
+            </div>
 
            
                 <div class="mincloud1"></div>
