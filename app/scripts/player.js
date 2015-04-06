@@ -19,7 +19,7 @@ window.Player = (function() {
 	var Player = function(el, game) {
 		this.el = el;
 		this.game = game;
-		this.dead = false;
+		this.dead = true;
 		this.pos = { x: 0, y: 0 };
 
 		this.lastY = INITIAL_POSITION_Y;
@@ -55,6 +55,7 @@ window.Player = (function() {
 			
 
 		}else if(Controls.keys.space){
+			this.dead = false;
 			this.begin = true;
 			pause = false;
 			//$(".Player").addClass("rotate");
@@ -93,6 +94,7 @@ window.Player = (function() {
 			/*this.pos.y < 0 ||*/
 			this.pos.y + HEIGHT > this.game.WORLD_HEIGHT) {
 			pause = true;
+		this.dead = true;
 			return this.game.gameover();
 		}
 	};

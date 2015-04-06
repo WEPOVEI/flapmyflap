@@ -76,17 +76,21 @@ Game.prototype.playSong = function(){
 		if(Controls.keys.space){
 			this.startPipes = true;
 		}
-		if(this.startPipes){
-			//this.PlaySong();
-			this.pipe1.onFrame(delta);
-			this.pipe2.onFrame(delta);
 
-			this.pipe3.onFrame(delta);
-			this.pipe4.onFrame(delta);
+		if(this.isPlaying === true && this.player.dead === false){
+			if(this.startPipes){
+				//this.PlaySong();
+				console.log("START PIPES");
+				this.pipe1.onFrame(delta);
+				this.pipe2.onFrame(delta);
 
-			this.pipe5.onFrame(delta);
-			this.pipe6.onFrame(delta);
+				this.pipe3.onFrame(delta);
+				this.pipe4.onFrame(delta);
 
+				this.pipe5.onFrame(delta);
+				this.pipe6.onFrame(delta);
+
+			}
 		}
 
 		// Request next frame.
@@ -99,31 +103,11 @@ Game.prototype.playSong = function(){
 	 * Starts a new game.
 	 */
 	Game.prototype.start = function() {
+		this.points = 0;
 		this.player.dead = false;
 		this.player.begin = false;
 		stop = false;
 		$('.Backimg').removeClass('pause');
-
-		//$( '.Backimg' ).animate({ left: "-=100em" }, 5000 );
-
-        /*var animate = $('.Backimg');
-	    function loopbackground() {
-	    	//console.log("looper2");
-			animate.css('background-position', '0px 0px');
-			$({position_x: 0, position_y: 0}).animate({position_x: -10, position_y: 0}, {
-				duration: 400,
-				easing: 'linear',
-				step: function() {
-					animate.css('background-position', this.position_x+'em '+this.position_y+'em');
-				},
-				complete: function() {
-					loopbackground();
-					console.log(stop);
-				}
-			});
-		}
-		loopbackground();*/
-
 
 
 		this.reset();
@@ -171,10 +155,10 @@ Game.prototype.playSong = function(){
 		this.player.begin = false;
 		this.isPlaying = false;
 		this.startPipes = false;
-		this.player.dead = false;
+		this.player.dead = true;
 		this.playSong();
 
-		console.log("points: " + this.points);
+		//console.log("points: " + this.points);
 		if(this.points > this.highscore){
 			this.highscore = this.points;
 		}
@@ -195,9 +179,10 @@ Game.prototype.playSong = function(){
 	};
 
 	Game.prototype.postPoint = function(pipeName) {
-		if(pipeName !== this.lastPipe){
+		if(pipeName !== this.lastPipe && this.isPlaying === true){
 			this.points++;
 			document.getElementById('count').innerHTML= this.points;
+			console.log("points = " + this.points);
 			this.lastPipe = pipeName;
 			console.log("lastPipe: " + this.lastPipe);
 		}
