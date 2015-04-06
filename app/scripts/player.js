@@ -39,7 +39,6 @@ window.Player = (function() {
 
 		if(pause){
 			$('.Player').addClass('wiggle');
-			//$('.Player').removeClass('lookup');
 			this.el.css('transform','translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 			
 		}
@@ -49,6 +48,9 @@ window.Player = (function() {
 
 		}
 		if(this.dead){
+			if(!this.game.mute){
+				this.game.song2.play();
+			}
 			$('.Backimg').addClass('pause');
 			this.pos.y += delta * SPEED;
 			this.checkCollisionWithBounds();
@@ -57,12 +59,8 @@ window.Player = (function() {
 		}else if(Controls.keys.space){
 			this.begin = true;
 			pause = false;
-			//$(".Player").addClass("rotate");
-			//this.mouseClick = 0;
-			//$('Player').toggleClass('rotated');
 
 			$('.Player').removeClass('wiggle');
-			//$('.Player').addClass('lookup');
 
 			this.pos.y -= delta * (SPEED*3.5);
 			
@@ -81,10 +79,6 @@ window.Player = (function() {
 			this.el.css('transform','translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em) rotate(' + -23 + 'deg)');
 		}
 		this.lastY = this.pos.y;
-
-		//this.el.css('transform','translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
-
-		//this.el.css('transform', 'translateZ(0) rotate(' + -23 + 'deg)');
 	};
 
 	Player.prototype.checkCollisionWithBounds = function() {
