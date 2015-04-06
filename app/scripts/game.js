@@ -83,8 +83,6 @@ Game.prototype.playSong = function(){
 
 		if(this.isPlaying === true && this.player.dead === false){
 			if(this.startPipes){
-				//this.PlaySong();
-				//console.log("START PIPES");
 				this.pipe1.onFrame(delta);
 				this.pipe2.onFrame(delta);
 
@@ -157,7 +155,6 @@ Game.prototype.playSong = function(){
 		this.player.dead = true;
 		this.playSong();
 
-		//console.log("points: " + this.points);
 		if(this.points > this.highscore){
 			this.highscore = this.points;
 		}
@@ -184,9 +181,8 @@ Game.prototype.playSong = function(){
 			}
 			this.points++;
 			document.getElementById('count').innerHTML= this.points;
-			console.log("points = " + this.points);
 			this.lastPipe = pipeName;
-			console.log("lastPipe: " + this.lastPipe);
+
 		}
 		
 
