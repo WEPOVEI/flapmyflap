@@ -127,11 +127,9 @@ Game.prototype.playSong = function(){
 
 
 		this.reset();
-		//this.pipe1.pipeSpawn();
-		// Restart the onFrame loop
 		this.lastFrame = +new Date() / 1000;
 		window.requestAnimationFrame(this.onFrame);
-		this.playSong();
+		//this.playSong();
 		this.isPlaying = true;
 
 		
@@ -139,9 +137,6 @@ Game.prototype.playSong = function(){
 		/**
 		 * Pipes functionality
 		 */
-		// Spawn pipes
-		//this.pipe1.pipeSpawn();
-		console.log("start");
 		this.pipe1.pipeSpawn();
 		this.pipe2.pipeSpawn();
 
@@ -172,13 +167,12 @@ Game.prototype.playSong = function(){
 
 		document.getElementById('count').innerHTML= '';
 		$('.Backimg').addClass('pause');
-		//$( '.Backimg' ).stop();
 
 		this.player.begin = false;
 		this.isPlaying = false;
 		this.startPipes = false;
 		this.player.dead = false;
-		//this.playSong();
+		this.playSong();
 
 		console.log("points: " + this.points);
 		if(this.points > this.highscore){
