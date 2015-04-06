@@ -77,12 +77,13 @@ Game.prototype.playSong = function(){
 		this.player.onFrame(delta);
 		if(Controls.keys.space){
 			this.startPipes = true;
+			this.isPlaying = true;
 		}
 
 		if(this.isPlaying === true && this.player.dead === false){
 			if(this.startPipes){
 				//this.PlaySong();
-				console.log("START PIPES");
+				//console.log("START PIPES");
 				this.pipe1.onFrame(delta);
 				this.pipe2.onFrame(delta);
 
