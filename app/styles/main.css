@@ -182,7 +182,7 @@ z-index: -1;
 
 .Backimg{
 
-	background-image: url('../images/backimg.png') repeat-x;
+	background-image: url('../images/backimg.png');
 	background-size: 10em 20em;
 	position:absolute;
 	height: 20em;
