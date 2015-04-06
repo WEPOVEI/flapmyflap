@@ -15,15 +15,16 @@ window.Game = (function() {
 		this.pipe4 = new window.Pipe4(this.el.find('.pipe4'), this, this.player, this.pipe3);
 		this.pipe5 = new window.Pipe5(this.el.find('.pipe5'), this, this.player);
 		this.pipe6 = new window.Pipe6(this.el.find('.pipe6'), this, this.player, this.pipe5);
-		this.pipe7 = new window.Pipe7(this.el.find('.pipe7'), this, this.player);
-		this.pipe8 = new window.Pipe8(this.el.find('.pipe8'), this, this.player, this.pipe7);
 		this.isPlaying = false;
 		this.startPipes = false;
 		this.points = 0;
 		this.highscore = 0;
 		this.lastPipe = '';
+		this.mute = false;
 
 		this.song = $('.playback').next('audio')[0];
+		this.song2 = $('.playback2').next('audio')[0];
+		this.mario = $('.playback3').next('audio')[0];
 
 		// Cache a bound onFrame since we need it each frame.
 		this.onFrame = this.onFrame.bind(this);
@@ -41,8 +42,9 @@ $(".onoffswitch-inner").on('click', function(){
 });
 
 Game.prototype.playSong = function(){
+	this.mute = mute;
 	if(this.isPlaying){
-		if(mute){
+		if(this.mute){
 			this.song.pause();
 			this.song.currentTime = 0;
 		}
@@ -97,8 +99,6 @@ Game.prototype.playSong = function(){
 		window.requestAnimationFrame(this.onFrame);
 	};
 
-	var stop = false;
-
 	/**
 	 * Starts a new game.
 	 */
@@ -106,17 +106,12 @@ Game.prototype.playSong = function(){
 		this.points = 0;
 		this.player.dead = false;
 		this.player.begin = false;
-		stop = false;
 		$('.Backimg').removeClass('pause');
-
-
 		this.reset();
 		this.lastFrame = +new Date() / 1000;
 		window.requestAnimationFrame(this.onFrame);
 		//this.playSong();
 		this.isPlaying = true;
-
-		
 
 		/**
 		 * Pipes functionality
@@ -147,7 +142,9 @@ Game.prototype.playSong = function(){
 	 * Signals that the game is over.
 	 */
 	Game.prototype.gameover = function() {
-
+		if(!this.mute){
+			this.song2.play();
+		}
 
 		document.getElementById('count').innerHTML= '';
 		$('.Backimg').addClass('pause');
@@ -179,7 +176,11 @@ Game.prototype.playSong = function(){
 	};
 
 	Game.prototype.postPoint = function(pipeName) {
-		if(pipeName !== this.lastPipe && this.isPlaying === true){
+
+		if(pipeName !== this.lastPipe){
+			if(!this.mute){
+				this.mario.play();
+			}
 			this.points++;
 			document.getElementById('count').innerHTML= this.points;
 			console.log("points = " + this.points);

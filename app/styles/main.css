@@ -200,25 +200,6 @@ z-index: -1;
 	100% { background-position: -300px 0; }
 }
 
-
-
-.Earth {
-	background: url('../images/backimg.png');
-	background-size: 12em 20em;
-	position: absolute;
-	height: 20em;
-	width: 103em;
-	z-index: 2;
-}
-.Earth2 {
-	background: url('../images/backimg.png');
-	background-size: 12em 20em;
-	position: absolute;
-	height: 20em;
-	width: 103em;
-	z-index: 2;
-}
-
 .Backimg{
 
 	background-image: url('../images/backimg.png') repeat-x;
