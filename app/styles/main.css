@@ -199,35 +199,7 @@ z-index: -1;
 	0% { background-position: 0 0; }
 	100% { background-position: -300px 0; }
 }
-.Backimg{
 
-	background-image: url('../images/backimg.png') repeat-x;
-	background-size: 20em 20em;
-	position:fixed;
-	height: 20em;
-	width:250em;
-	top:42em;
-	left:0;
-	z-index:-1;
-	-webkit-transform: translate3d(0,0,0);
-	animation: animatedBackground 3s linear infinite;
-	-webkit-animation: animatedBackground 3s linear infinite;
-}
-
-.Backimg.stop{
-
-	background-image: url('../images/backimg.png') repeat-x;
-	background-size: 10em 20em;
-	position:fixed;
-	height: 20em;
-	width:480em;
-	top:42em;
-	left:0;
-	z-index:-1;
-	-webkit-transform: translate3d(0,0,0);
-	animation: animatedBackground 0s linear infinite;
-	-webkit-animation: animatedBackground 0s linear infinite;
-}
 
 
 .Earth {
@@ -247,7 +219,23 @@ z-index: -1;
 	z-index: 2;
 }
 
+.Backimg{
 
+	background-image: url('../images/backimg.png') repeat-x;
+	background-size: 10em 20em;
+	position:absolute;
+	height: 20em;
+	width:480em;
+    top: 38em;
+	z-index:-1;
+	left:0;
 
+	-webkit-transform: translate3d(0,0,0);
+	animation: animatedBackground 2s linear infinite;
+	-webkit-animation: animatedBackground 2s linear infinite;
+}
 
-
+.Backimg.pause{
+	-webkit-animation-play-state: paused; /* Chrome, Safari, Opera */
+    animation-play-state: paused;
+}

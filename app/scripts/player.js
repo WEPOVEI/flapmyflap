@@ -66,7 +66,7 @@ window.Player = (function() {
 			this.pos.y -= delta * (SPEED*3.5);
 			
 			if(this.game.isPlaying){
-				this.game.playSong();
+				//this.game.playSong();
 			} 
 
 		}else{

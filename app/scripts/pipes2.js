@@ -37,14 +37,11 @@ window.Pipe3 = (function() {
 		if(this.player.pos.x >= this.minX && this.player.pos.x <= this.maxX){
 
 		   if(Math.floor(this.player.pos.y) >= this.pos.y - 6){
-		   		//console.log("Arekstur");
-		   		//this.gameover();
 		   		this.player.dead = true;
 		   		$('.Backimg').addClass('stop');
 		   }		
 		}
 		if(this.maxX < this.player.pos.x){
-			//console.log(this.pipeName);
 			this.game.postPoint(this.pipeName);
 		}
 		// Back to the beginning
@@ -86,10 +83,8 @@ window.Pipe4 = (function() {
 
 	Pipe4.prototype.pipeSpawn = function() {
 
-		//console.log(this.pipe1.getY());
 		this.pos.x = this.startX;
 		this.pos.y = this.pipe3.getY() - this.pipeGap;
-		//console.log("y: " + (this.pos.y + 100));
 		// Update UI
 		this.pipe4.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 	};
@@ -99,21 +94,17 @@ window.Pipe4 = (function() {
 	Pipe4.prototype.onFrame = function(delta) {
 		
 		if(!this.player.dead){
-			//console.log("trueee");
 			this.pos.x -= delta * SPEED;
 		}
 
 		this.minX = this.pos.x - 6;
 		this.maxX = this.pos.x + 6;
 
-		//console.log(Math.floor(this.player.pos.y) +  " <= " + (this.pos.y + 100));
 		if(this.player.pos.x >= this.minX && this.player.pos.x <= this.maxX){
 
-		   if(Math.floor(this.player.pos.y) <= (this.pos.y + 100)) {
-		   		//console.log("Arekstur");
+		   if(Math.floor(this.player.pos.y) - 3 <= (this.pos.y + 100)) {
 		   		this.player.dead = true;
 		   		$('.Backimg').addClass('stop');
-		   		//this.game.gameover();
 		   }		
 		}
 
@@ -122,7 +113,6 @@ window.Pipe4 = (function() {
 			this.pos.y = this.pipe3.getY() - this.pipeGap;
 		}
 		this.pipe4.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
-		//console.log("pos: " + this.pos.x  + ", " + this.pos.y);
 	};
 
 	return Pipe4;

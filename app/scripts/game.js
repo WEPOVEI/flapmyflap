@@ -17,8 +17,6 @@ window.Game = (function() {
 		this.pipe6 = new window.Pipe6(this.el.find('.pipe6'), this, this.player, this.pipe5);
 		this.pipe7 = new window.Pipe7(this.el.find('.pipe7'), this, this.player);
 		this.pipe8 = new window.Pipe8(this.el.find('.pipe8'), this, this.player, this.pipe7);
-		this.earth = new window.Earth(this.el.find('.Earth'), this, this.player);
-		this.earth2 = new window.Earth2(this.el.find('.Earth2'), this, this.player);
 		this.isPlaying = false;
 		this.startPipes = false;
 		this.points = 0;
@@ -68,7 +66,6 @@ Game.prototype.playSong = function(){
 		if (!this.isPlaying) {
 			return;
 		}
-
 		// Calculate how long since last frame in seconds.
 		var now = +new Date() / 1000,
 				delta = now - this.lastFrame;
@@ -79,7 +76,6 @@ Game.prototype.playSong = function(){
 		if(Controls.keys.space){
 			this.startPipes = true;
 		}
-
 		if(this.startPipes){
 			//this.PlaySong();
 			this.pipe1.onFrame(delta);
@@ -91,16 +87,13 @@ Game.prototype.playSong = function(){
 			this.pipe5.onFrame(delta);
 			this.pipe6.onFrame(delta);
 
-			
-
-			//this.pipe7.onFrame(delta);
-			//this.pipe8.onFrame(delta);
 		}
-		this.earth.onFrame(delta);
-		this.earth2.onFrame(delta);
+
 		// Request next frame.
 		window.requestAnimationFrame(this.onFrame);
 	};
+
+	var stop = false;
 
 	/**
 	 * Starts a new game.
@@ -108,6 +101,30 @@ Game.prototype.playSong = function(){
 	Game.prototype.start = function() {
 		this.player.dead = false;
 		this.player.begin = false;
+		stop = false;
+		$('.Backimg').removeClass('pause');
+
+		//$( '.Backimg' ).animate({ left: "-=100em" }, 5000 );
+
+        /*var animate = $('.Backimg');
+	    function loopbackground() {
+	    	//console.log("looper2");
+			animate.css('background-position', '0px 0px');
+			$({position_x: 0, position_y: 0}).animate({position_x: -10, position_y: 0}, {
+				duration: 400,
+				easing: 'linear',
+				step: function() {
+					animate.css('background-position', this.position_x+'em '+this.position_y+'em');
+				},
+				complete: function() {
+					loopbackground();
+					console.log(stop);
+				}
+			});
+		}
+		loopbackground();*/
+
+
 
 		this.reset();
 		//this.pipe1.pipeSpawn();
@@ -133,8 +150,6 @@ Game.prototype.playSong = function(){
 		this.pipe5.pipeSpawn();
 		this.pipe6.pipeSpawn();
 
-		this.earth.earthSpawn();
-		this.earth2.earthSpawn();
 		
 	    /*
 	     * Pipes end
@@ -154,15 +169,16 @@ Game.prototype.playSong = function(){
 	 */
 	Game.prototype.gameover = function() {
 
-		document.getElementById('count').innerHTML= '';
 
-		//$('.Backimg').addClass('stop');
+		document.getElementById('count').innerHTML= '';
+		$('.Backimg').addClass('pause');
+		//$( '.Backimg' ).stop();
+
 		this.player.begin = false;
 		this.isPlaying = false;
 		this.startPipes = false;
 		this.player.dead = false;
-		this.playSong();
-
+		//this.playSong();
 
 		console.log("points: " + this.points);
 		if(this.points > this.highscore){
