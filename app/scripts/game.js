@@ -25,6 +25,7 @@ window.Game = (function() {
 		this.song = $('.playback').next('audio')[0];
 		this.song2 = $('.playback2').next('audio')[0];
 		this.mario = $('.playback3').next('audio')[0];
+		this.mario.playbackRate = 2.0;
 
 		// Cache a bound onFrame since we need it each frame.
 		this.onFrame = this.onFrame.bind(this);
