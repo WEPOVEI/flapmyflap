@@ -174,7 +174,6 @@ Game.prototype.playSong = function(){
 					that.start();
 				});
 		this.lastPipe = '';
-		this.points = 0;
 	};
 
 	Game.prototype.postPoint = function(pipeName) {
